@@ -1,4 +1,4 @@
-# DotNetCoreFileLogger
+# Dot Net Core File Logger
 .Net Core File Logger Provider 
 .Net Core Version 5.0
 
