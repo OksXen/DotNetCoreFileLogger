@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using WWS.Logger.FileProvider;
+
 
 namespace LoggerWebApplication
 {
@@ -26,11 +29,17 @@ namespace LoggerWebApplication
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            // Add File Logger
+            services.AddLogging(configure => 
+            {
+                configure.AddWWSFileLogger(ServiceLifetime.Singleton);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        {                       
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

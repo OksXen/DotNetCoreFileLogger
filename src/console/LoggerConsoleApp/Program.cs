@@ -21,7 +21,7 @@ namespace LoggerConsoleApp
 
         static IConfiguration LoadConfiguration()
         {
-            var settingsFilename = "appsetting.json";
+            var settingsFilename = "appsettings.json";
             var moduleFileName = Process.GetCurrentProcess().MainModule.FileName;
             var currDir = Path.GetDirectoryName(moduleFileName);
             var builder = new ConfigurationBuilder()
@@ -32,7 +32,10 @@ namespace LoggerConsoleApp
 
         static IServiceCollection ConfigureServices()
         {
-            var config = LoadConfiguration();
+            // future settings
+            //var config = LoadConfiguration();
+
+
             var services = new ServiceCollection();
             services
                 .AddLogging(configure =>
